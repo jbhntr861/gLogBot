@@ -10,13 +10,24 @@ import time #for sleep
 import files #for working with files
 from pprint import pprint  #to make output easy on the eyes
 import json #for working with JSON filesimport os #for working with the OS
+import yaml
 
 #Definte login variables and Get username and password
 #need input validation
 
-print(Fore.CYAN + "\n\tThis program logs in to your Google account and stores the data output of HTTP requests made to Google servers into a directory. It is intended to\n be the beginning of a larger automated form login and data scraping bot. \n")
-uName=input(Fore.GREEN + "\n Phone or Gmail: ")
-uPass=input(Fore.GREEN + "Password: ")
+
+
+print(Fore.CYAN + "\n\tThis program logs in to your Google account and stores the data output of HTTP requests made to Google servers into a directory. To avoid logging in everytime edit your credentials into the .yml in your gLogBot directory. Make sure you do not share this file. \n")
+
+yaml.load(open('login.yml'))
+
+conf=yaml.load(open('login.yml'))
+uName = conf['user']['email']
+uPass  = conf['user']['password']
+
+if uName == "youremailhere@gmail.com": 
+    uName=input(Fore.GREEN + "\n Phone or Gmail: ")
+    uPass=input(Fore.GREEN + "Password: ")
 
 #create directory variables
 
@@ -59,54 +70,65 @@ True
 
 #Print variables to screen and save results for further study
 
-pprint("Data dump in 5, 4, 3, 2... ")
-time.sleep(5)
+#pprint("Data dump in 5, 4, 3, 2... ")
+#time.sleep(5)
 
-pprint("::::::::::::::SOUP:::::::::::::::::")
-pprint("-----------------------------------")
-time.sleep(5)
+#I am commenting out the printing of the data to screen 
+#pprint("::::::::::::::SOUP:::::::::::::::::")
+#pprint("-----------------------------------")
+#time.sleep(5)
 
 with open('soup.html', 'w', encoding='utf-8') as f:
  f.write(str(soup))
  f.close()
 
-print(soup.prettify)
+#print(soup.prettify)
 
 
-time.sleep(5)
-pprint("::::::::::::::YOUR_MAIL::::::::::::::")
-time.sleep(2)
+#time.sleep(5)
+#pprint("::::::::::::::YOUR_MAIL::::::::::::::")
+#time.sleep(5)
 
 
 with open('myMail.txt', 'w') as f:
  f.write(my_mail)
  f.close()
 
-time.sleep(2)
-pprint(my_mail)
-time.sleep(2)
+#time.sleep(5)
+#pprint(my_mail)
+#time.sleep(5)
 
-time.sleep(2)
-pprint(":::::::::::::HTML::::::::::::::")
-time.sleep(2)
+#time.sleep(5)
+#pprint(":::::::::::::HTML::::::::::::::")
+#time.sleep(5)
 
 
 with open('html.html', 'w', encoding='utf-8') as f:
  f.write(str(html))
  f.close()
 
-time.sleep(2)
-pprint(html)
-time.sleep(2)
+#time.sleep(5)
+#pprint(html)
+#time.sleep(5)
 
-time.sleep(2)
-pprint("::::::::::::FORM_DATA:::::::::::")
-time.sleep(1)
+#time.sleep(5)
+#pprint("::::::::::::FORM_DATA:::::::::::")
+#time.sleep(5)
 
 
 with open('formData.txt', 'w') as f:
  f.write(json.dumps(form_data))
  f.close()
 
-pprint(form_data)
+#pprint(form_data)
 #
+
+#Now we have logged into google lets log into Shodan and retrieve our API key
+
+post = "https://account.shodan.io"
+soup = bs(s.get("https://account.shodan.io").text,  "html.parser")
+
+for inp in soup.select("#g_id_signin"):
+ s.post(post)
+ html = s.get("https://account.shodan.io/login/google_oidc"
+)
