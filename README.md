@@ -4,6 +4,7 @@ TO INSTALL
 Debian based Linux
 
 gh repo clone jbhntr861/gLogBot
+
 apt install python3
 apt install pip3
 pip install -r requirements.txt
