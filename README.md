@@ -5,10 +5,17 @@ Debian based Linux
 
 gh repo clone jbhntr861/gLogBot
 
-apt install python3 \n
-apt install pip3 \n
-pip install -r requirements.txt \n
+apt install python3 
+
+apt install pip3
+
+cd gLogBot
+
+pip install -r requirements.txt 
+
 python3 gLogBot.py
+
+
 
 To login automatically when running program edit the login.yml file with your Gmail and password.
 
