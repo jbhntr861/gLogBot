@@ -1,3 +1,4 @@
+
 #import all prewritten code modules to use
 import colorama #for color
 from colorama import Fore #for color
@@ -13,24 +14,24 @@ import json #for working with JSON filesimport os #for working with the OS
 #Definte login variables and Get username and password
 #need input validation
 
-print(Fore.CYAN + "\n\tThis program logs in to your Google account and stores>
+print(Fore.CYAN + "\n\tThis program logs in to your Google account and stores the data output of HTTP requests made to Google servers into a directory. It is intended to\n be the beginning of a larger automated form login and data scraping bot. \n")
 uName=input(Fore.GREEN + "\n Phone or Gmail: ")
 uPass=input(Fore.GREEN + "Password: ")
 
 #create directory variables
 
-path=input(Fore.CYAN + "\n\nEnter path you would like the information stored >
+path=input(Fore.CYAN + "\n\nEnter path you would like the information stored in format /path/to/directory if unsure leave blank and the current directory will be used: ")
 
 if not path:
    path=os.getcwd()
 if path=="pey pey":
-   print(Fore.MAGENTA +"What up Pedro!", Fore.RED +" <3 ", Fore.BLUE + " John>
+   print(Fore.MAGENTA +"What up Pedro!", Fore.RED +" <3 ", Fore.BLUE + " John")
 if path=="brent":
-   print(Fore.MAGENTA + "What up Brent!", Fore.RED +" <3", Fore.BLUE + " John>
+   print(Fore.MAGENTA + "What up Brent!", Fore.RED +" <3", Fore.BLUE + " John")
 if path=="jason":
    print(Fore.MAGENTA + "JAY SOHN!!!!", Fore.RED +" <3", Fore.BLUE + " John")
 if path=="joanne":
-   print(Fore.MAGENTA + "Hey MOM! I LOVE YOU!!!", Fore.RED +" <3", Fore.BLUE >
+   print(Fore.MAGENTA + "Hey MOM! I LOVE YOU!!!", Fore.RED +" <3", Fore.BLUE + "John")
 if path=="amy":
    print(Fore.MAGENTA + "Hey Amy!", Fore.RED +" <3", Fore.BLUE + " John")
 
@@ -38,6 +39,7 @@ try: os.mkdir(path)
 except OSError as error:
    print("Using previous directory.")
 finally: os.chdir(path)
+
 #Try to login
 
 form_data={'Email': uName, 'Password': uPass}
@@ -78,7 +80,7 @@ time.sleep(5)
 
 with open('myMail.txt', 'w') as f:
  f.write(my_mail)
-f.close()
+ f.close()
 
 time.sleep(5)
 pprint(my_mail)
