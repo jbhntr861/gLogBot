@@ -75,33 +75,33 @@ print(soup.prettify)
 
 time.sleep(5)
 pprint("::::::::::::::YOUR_MAIL::::::::::::::")
-time.sleep(5)
+time.sleep(2)
 
 
 with open('myMail.txt', 'w') as f:
  f.write(my_mail)
  f.close()
 
-time.sleep(5)
+time.sleep(2)
 pprint(my_mail)
-time.sleep(5)
+time.sleep(2)
 
-time.sleep(5)
+time.sleep(2)
 pprint(":::::::::::::HTML::::::::::::::")
-time.sleep(5)
+time.sleep(2)
 
 
 with open('html.html', 'w', encoding='utf-8') as f:
  f.write(str(html))
  f.close()
 
-time.sleep(5)
+time.sleep(2)
 pprint(html)
-time.sleep(5)
+time.sleep(2)
 
-time.sleep(5)
+time.sleep(2)
 pprint("::::::::::::FORM_DATA:::::::::::")
-time.sleep(5)
+time.sleep(1)
 
 
 with open('formData.txt', 'w') as f:
