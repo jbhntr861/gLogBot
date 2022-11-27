@@ -19,6 +19,7 @@ import yaml
 
 print(Fore.CYAN + "\n\tThis program logs in to your Google account and stores the data output of HTTP requests made to Google servers into a directory. To avoid logging in everytime edit your credentials into the .yml in your gLogBot directory. Make sure you do not share this file. \n")
 
+yaml.warnings({'YAMLLoadWarning': False})
 yaml.load(open('login.yml'))
 
 conf=yaml.load(open('login.yml'))
